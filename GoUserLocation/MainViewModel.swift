@@ -12,16 +12,12 @@ import CoreLocation
 
 class MainViewModel: NSObject, ObservableObject {
     @Published var permissionDenied = false
-    @Published var region = MKCoordinateRegion()
     
-    private var managedObjectContext: NSManagedObjectContext?
     private var locationManager = CLLocationManager()
     
-    func setup(managedObjectContext: NSManagedObjectContext) {
-        self.managedObjectContext = managedObjectContext
+    func setup() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.allowsBackgroundLocationUpdates = true
     }
 
     func startLocationServices() {

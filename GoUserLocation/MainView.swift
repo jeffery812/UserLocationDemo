@@ -14,6 +14,7 @@ struct MainView: View {
         self.viewModel = viewModel
     }
     var body: some View {
+        viewModel.setup()
         return ZStack {
             MapView()
                 .ignoresSafeArea(.all)
